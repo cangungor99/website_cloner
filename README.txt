@@ -1,52 +1,72 @@
-Site Cloner Kullanım Kılavuzu (Turkish)
+# Site Cloner - Advanced Website Cloning Tool
 
-Genel Bilgi:Bu Python betiği, belirli bir web sitesini klonlamak için kullanılır. Site Cloner, bir sayfanın tamamını veya belirli varlıkları (HTML, CSS, JS, img) indirerek yerel olarak saklamanızı sağlar.
+## 🚀 About
+Site Cloner is a Python-based web page cloning tool that allows you to **download an entire website or specific pages**, including **HTML, CSS, JS, images**, and more. The tool maintains the **original directory structure** of the website and provides an easy way to create an offline version of any site.
 
-Kurulum:
+## ✨ Features
+- ✅ **Clone single pages or entire websites** (`--full` option)
+- ✅ **Download assets (CSS, JS, images) while keeping directory structure**
+- ✅ **Follow internal links to fetch subpages**
+- ✅ **Support for authentication via cookies**
+- ✅ **Real-time progress tracking with percentage updates**
+- ✅ **User-friendly output with colored status messages**
 
-Python'un kurulu olduğundan emin olun. (Python 3.6+ önerilir)
-
-Gerekli bağımlılıkları yükleyin:
-
+## 🛠️ Installation
+Make sure you have **Python 3.6+** installed. Then, install the required dependencies:
+```bash
 pip install -r requirements.txt
+```
 
-Scripti terminal veya komut satırında çalıştırın.
+## 📌 Usage
 
-Kullanım:
+### Clone a Single Page
+```bash
+python site_cloner.py "https://example.com"
+```
+This will **only download the main page** and its assets (CSS, JS, images).
 
-1. Tek Bir Sayfa Klonlamak
+### Clone an Entire Website (`--full`)
+```bash
+python site_cloner.py "https://example.com" --full
+```
+This will **recursively follow all internal links** and download the entire site.
 
-python site_cloner.py "https://ornek-site.com"
+### Clone with Authentication (Cookies)
+```bash
+python site_cloner.py "https://example.com" --cookies "sessionid=abc123; userid=456"
+```
+Use this option for sites that require authentication.
 
-Bu komut, yalnızca ana sayfayı ve onun varlıklarını (CSS, JS, görseller) indirir.
+### Save to a Specific Folder
+```bash
+python site_cloner.py "https://example.com" --output "my_cloned_site"
+```
+This saves all downloaded files inside the `my_cloned_site/` folder.
 
-2. Tüm Siteyi Klonlamak (--full parametresi)
+## 🏗️ Directory Structure
+The cloned website maintains a **structured format**:
+```
+my_cloned_site/
+│── index.html
+│── about.html
+│── contact.html
+│── assets/
+│   ├── css/
+│   ├── js/
+│   ├── images/
+```
 
-python site_cloner.py "https://ornek-site.com" --full
+## ⚡ Example Output
+```bash
+✅ Cloning started: https://example.com
+🔄 Downloading page: https://example.com
+🖼️ Downloading assets (CSS, JS, img)...
+✅ Page saved: my_cloned_site/index.html
+✅ Cloning completed!
+```
 
-Bu komut, tüm siteyi (örneğin, ornek.com/register, ornek.com/about) ve iç bağlantıları ile birlikte indirir.
+## 📜 License
+This project is **open-source** and distributed under the **MIT License**.
 
-3. Çerez Kullanarak Sayfa Klonlamak
-
-Eğer site çerez gerektiriyorsa, şu şekilde çerezleri iletebilirsiniz:
-
-python site_cloner.py "https://ornek-site.com" --cookies "sessionid=xyz123; userid=456"
-
-4. Çıktıyı Belirli Bir Klasöre Kaydetmek
-
-python site_cloner.py "https://ornek-site.com" --output "my_cloned_site"
-
-Bu komut, tüm dosyaları my_cloned_site/ klasörüne kaydeder.
-
-Özellikler:
-
-✅ HTML, CSS, JS, img gibi varlıkları indirir.
-
-✅ Alt dizinleri koruyarak organize eder.
-
-✅ Tüm iç linkleri tarayarak bağlantılı sayfaları indirir (--full).
-
-✅ Çerez desteğiyle özel oturumları taklit eder.
-
-✅ İndirme ilerlemesini ve yüzde tamamlanma durumunu gösterir.
+🚀 **Try it out and easily create offline versions of any website!**
 
